@@ -1,0 +1,20 @@
+# Options
+set horizontal-scroll = 5
+set tab-size = 4
+set ignore-case = smart-case
+set main-view = \
+	date:display=custom,format="%Y-%m-%d %H:%M" \
+	author:display=full \
+	id:display=true \
+	commit-title:graph=v2,refs=true
+
+# Bindings
+bind main = !git commit --fixup=%(commit) # '=' create a new fixup commit for the focused commit
+bind main <Ctrl-R> !git rebase --autosquash -i %(commit) # 'Ctrl-R' being an interactive rebase with auto-squashing enabled on top of the focused commit
+bind generic + !git commit --amend # '+' ammend last commit
+bind generic I !git add -i %(file) # 'I' add file interactive
+
+# Colors
+color cursor default black
+color title-focus yellow black
+color title-blur yellow black
