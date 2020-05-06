@@ -1,8 +1,8 @@
 # Unbind all default bindings.
-unbind-key -T prefix -a
-unbind-key -T root -a
-unbind-key -T copy-mode -a
-unbind-key -T copy-mode-vi -a
+#unbind-key -T prefix -a
+#unbind-key -T root -a
+#unbind-key -T copy-mode -a
+#unbind-key -T copy-mode-vi -a
 
 # Set default prefix.
 set-option -g prefix C-a
@@ -48,3 +48,11 @@ set-option -g automatic-rename on
 
 # Terminal overrides.
 set-option -g -a terminal-overrides ',xterm-256color:Tc' # True color support.
+
+# Automatically rename tmux windows to the current directory
+set-option -g automatic-rename-format '#{b:pane_current_path}'
+set-option -g status-interval 5
+
+# Fix availability of pbcopy, pbpaste and other user-level services
+if-shell 'test (uname) = "Darwin"' \
+    'tmux set-option -g default-command "reattach-to-user-namespace -l $SHELL"'
