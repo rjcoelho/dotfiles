@@ -1,31 +1,156 @@
+# see https://github.com/GitAlias/gitalias/blob/master/gitalias.txt
 [alias]
-	a = add
-	b = branch
-	bl = !git --no-pager branch --verbose --all
-	c = commit
-	co = checkout --no-guess
-	d = diff --stat=100,100 --patch
-	ds = diff --stat=100,100 --patch --staged
-	dt = difftool
-	dts = difftool --staged
-	f = fetch
-	l = log \
-		--graph \
-		--abbrev-commit \
-		--decorate \
-		--all \
-		--date=format:'%Y-%m-%d %H:%M' \
-		--format=format:'%C(blue)%ad%C(reset) %C(yellow)%h%C(reset) %C(white)%s%C(reset) %C(blue)%an%C(reset) %C(bold yellow)%d%C(reset)'
-	r = reset
-	s = status
-	sm = submodule
-	w = whatchanged
-	ctags = !.git/hooks/ctags
-	pr = "! \
-		function f() { \
-			git fetch --force --update-head-ok ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; \
-		}; f"
-	pr-clean = "! \
-		git for-each-ref refs/heads/pr/* --format='%(refname)' \
-		| sed s#refs/heads/## \
-		| xargs -I '{}' git branch --delete --force {}"
+    # One letter alias for our most frequent commands.
+    a = add
+    b = branch
+    c = commit
+    d = diff
+    f = fetch
+    g = grep
+    l = log
+    m = merge
+    o = checkout
+    p = pull
+    r = remote
+    s = status
+    w = whatchanged
+
+    ## add
+    # add all
+    aa = add --all
+    # add by patch - looks at each change, and asks if we want to put it in the repo.
+    ap = add --patch
+    # add just the files that are updated.
+    au = add --update
+
+    ## commit
+    # commit - amend the tip of the current branch rather than creating a new commit.
+    ca = commit --amend
+    # commit - amend the tip of the current branch, and do not edit the message.
+    cane = commit --amend --no-edit
+    # commit interactive
+    ci = commit --interactive
+    # commit with a message
+    cm = commit --message
+
+    ## checkout
+    # checkout - update the working tree to match a branch or paths. [same as "o" for "out"]
+    co = checkout
+
+    ## dif
+    # diff - show changes not yet staged
+    dc = diff --cached
+    # diff - show changes about to be commited
+    ds = diff --staged
+
+    ## clean
+    # clean everything to be pristine
+    cleanest = clean -ffdx
+
+    ## grep
+    # grep group - search with our preferred options. Also aliased as `grep-group`.
+    gg = grep --break --heading --line-number --color
+
+    ## log/status
+    # log with one line per item.
+    lo = log --oneline
+    # log like - we like this summarization our key performance indicators. Also aliased as `log-like`.
+    ll = log --graph --topo-order --date=short --abbrev-commit --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
+    # ls-files - show information about files in the index and the working tree; like Unix "ls" command.
+    ls = ls-files
+    # head - show HEAD commit sha1
+    head = rev-parse HEAD
+    # root - show git root directory
+    root = rev-parse --show-prefix
+
+    ## edit
+    # edit modified files (-m)
+    edit = !$EDITOR -p $(git ls-files -m)
+
+    ## pull/fetch
+    # pull if a merge can be resolved as a fast-forward, otherwise fail.
+    pf = pull --ff-only
+    # pull with rebase - to provide a cleaner, linear, bisectable history.
+    pr = pull --rebase
+    # pull force reseting local changes
+    pull-force = !git fetch && git reset --hard @{upstream}
+    # fetch all and prune /remove any local untracked refs
+    fa = fetch --all --prune
+
+    ## reset & undo
+    # Reset and undo aliases are ways to move backwards on the commit chain.
+    # We find that novices prefer the wording "undo"; experts prefer "reset".
+    undo = reset --soft HEAD~1
+    undo-commit = reset --soft HEAD~1
+    undo-commit-hard = reset --hard HEAD~1
+    undo-commit-clean  = !git reset --hard HEAD~1 && git clean -fd
+    undo-to-pristine = !git reset --hard && git clean -ffdx
+    undo-to-upstream  = !git reset --hard $(git upstream-name)
+    unadd = reset HEAD
+    unstage = reset HEAD
+    # discard changes in a (list of) file(s) in working tree
+    discard = checkout --
+    # clean and discard changes and untracked files in working tree
+    cleanout = !git clean -df && git checkout -- .
+
+    ## rebase
+    # rebase - forward-port local commits to the updated upstream head.
+    rb = rebase
+    # rbi - rebase interactive on our unpushed commits.
+    rbi = rebase --interactive @{upstream}
+    # See https://blog.filippo.io/git-fixup-amending-an-older-commit/
+    # This is a slightly modified version
+    fixup = "!f() { TARGET=$(git rev-parse \"$1\"); git commit --fixup=$TARGET && GIT_EDITOR=true git rebase --interactive --autosquash $TARGET~; }; f"
+
+    ## remote
+    # show remote urls
+    rv = remote --verbose
+    # shot incoming and outgoing commits comparing to remotes
+    incoming = !git remote update --prune; git log ..@{upstream}
+    outgoing = log @{upstream}..
+    # open BROWSER to remote's url
+    open = "!open `git config remote.origin.url`"
+    # show remote url
+    url = config remote.origin.url
+
+    ## submodule
+    # submodule - enables foreign repositories to be embedded within a dedicated subdirectory of the source tree.
+    sm = submodule
+    # submodule add
+    sma = submodule add
+    # submodule sync
+    sms = submodule sync
+    # submodule update with initialize and recursive; this is useful to bring a submodule fully up to date.
+    smuir = submodule update --init --recursive
+    # submodule update resursive
+    smu = submodule update --recursive --remote --merge --force
+    # submodule remote
+    smrm = "!f() { git submodule deinit -f -- \"$1\"; git rm --force -- \"$1\"; }; f"
+
+    ## describe/tags
+    # last tag in the current branch
+    lasttag = describe --tags --abbrev=0
+    # latest annotated tag in all branches
+    lasttagged = !git describe --tags `git rev-list --tags --max-count=1`
+    # all tags
+    tags = tag -n1 --list
+    # remove local tags
+    rm-local-tags = "!git fetch --prune origin '+refs/tags/*:refs/tags/*'"
+
+    ## grep
+    # find text and group the output lines. A.k.a. `gg`.
+    grep-group = grep --break --heading --line-number --color
+
+    ## push
+    pf = push --force-with-lease
+    push-safe = push -f --force-with-lease
+
+    ## alias management
+    # ahow our defined alias list
+    aliases = "!git config --get-regexp '^alias\\.' | cut -c 7- | sed 's/ / = /'"
+
+    ## stash
+    save = stash push
+    pop = stash pop
+    snapshot = !git stash push "snapshot: $(date)" && git stash apply "stash@{0}"
+

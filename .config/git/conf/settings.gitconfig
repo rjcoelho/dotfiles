@@ -4,33 +4,28 @@
 	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 
 [init]
-	templatedir = ~/.config/git/templatedir
+#	templatedir = ~/.config/git/templatedir
+
+[interactive]
+	diffFilter = delta --color-only
 
 [pull]
 	rebase = true
 
 [push]
-	default = nothing
+	default = simple
 	followtags = true
 
-[diff]
-	algorithm = patience
-	tool = nvimdiff
-	renames = copies
-	submodule = log
-[difftool "nvimdiff"]
-	cmd = nvim -d $LOCAL $REMOTE
-	trustexitcode = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
 
-[merge]
-	tool = nvimmerge
-	log = true
-[mergetool "nvimmerge"]
-	cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-	trustexitcode = true
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 
 [commit]
-	gpgsign = true
+#	gpgsign = true
 	verbose = true
 
 [status]
@@ -47,3 +42,6 @@
 [column]
 	ui = auto
 	tag = never
+
+#[fetch]
+#    recurseSubmodules = true
