@@ -1,0 +1,10 @@
+# see https://github.com/oh-my-fish/packages-main/tree/master/packages and https://github.com/jorgebucaran/awesome-fish
+# plugins
+oh-my-fish/plugin-fasd
+oh-my-fish/plugin-aws
+oh-my-fish/plugin-direnv
+oh-my-fish/plugin-ssh-config.d
+fisherman/fzf
+# themes
+#oh-my-fish/theme-robbyrussell
+rafaelrinaldi/pure
