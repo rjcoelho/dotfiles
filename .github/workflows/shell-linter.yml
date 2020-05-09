@@ -1,0 +1,26 @@
+name: shell-linter
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  shell-linter:
+    runs-on: ubuntu-latest # macos-latest, ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Download shellcheck
+        run: |
+          scversion='v0.7.0'
+          wget -qO- "https://storage.googleapis.com/shellcheck/shellcheck-${scversion?}.linux.x86_64.tar.xz" | tar -xJv
+          shellcheck --version
+      
+      - name: Lint check
+        run: |
+          export SHELLCHECK_DOTFILES_OPTS='--exclude=SC2191,SC1072,SC2148,SC2039,SC1073,SC1088,SC1050,SC1064,SC2068,SC1083,SC2034,SC2164,SC2206,SC2016,SC2059,SC2086,SC1036'
+          shellcheck $SHELLCHECK_DOTFILES_OPTS `find . \( -name plugins -o -name pack \) -prune -o -type f \( -name '*.zsh' -o -name '*.sh' \) -print`
