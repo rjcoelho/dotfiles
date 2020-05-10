@@ -51,3 +51,6 @@
 [submodule "undotree"]
 	path = .vim/pack/bundle/opt/undotree
 	url = https://github.com/mbbill/undotree
+[submodule ".config/kak/plugins/plug.kak"]
+	path = .config/kak/plugins/plug.kak
+	url = https://gitlab.com/andreyorst/plug.kak.git
