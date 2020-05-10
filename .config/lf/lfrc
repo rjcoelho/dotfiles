@@ -1,0 +1,44 @@
+# Basic Settings
+set hidden true
+set color256 true
+set ignorecase false
+set preview true
+set previewer ~/.config/lf/previewer.sh
+
+# Custom Functions
+# see https://github.com/gokcehan/lf/wiki/Integrations
+cmd fzf_jump ${{
+  res="$(find . -maxdepth 3 | fzf --reverse --header='Jump to location')"
+  if [ -f "$res" ]; then
+    cmd="select"
+  elif [ -d "$res" ]; then
+    cmd="cd"
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+
+cmd stripspace %stripspace "$f"
+
+# Bindings
+
+# Fuzzy finder
+map <c-f> :fzf_jump
+
+# File Openers
+map ee $$EDITOR "$f"
+map u $view "$f"
+
+# Basic Functions
+map . set hidden!
+map <enter> open
+map C clear
+map DD delete
+map H top
+map L bottom
+map R reload
+map U unselect
+map p paste
+map r rename
+map x cut
+map y copy
+map qq quit
