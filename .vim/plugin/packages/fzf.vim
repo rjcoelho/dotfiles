@@ -10,13 +10,6 @@ let g:fzf_commands_expect = 'alt-enter'
 " Enable preview window.
 let g:fzf_preview_window = 'down:60%'
 
-" Set custom layout.
-let g:fzf_layout = {
-	\ 'window': has('nvim')
-		\ ? 'call g:FzfFloatingWindow()'
-		\ : 'silent 18split enew'
-\ }
-
 " Set actions manually.
 let g:fzf_action = {
 	\ 'ctrl-s': 'split',
@@ -28,7 +21,7 @@ let g:fzf_action = {
 let g:fzf_history_dir = $HOME .. '/.vim/cache/share/fzf/'
 
 " Override `fzf` options.
-let $FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS .. " --margin='1,4' --info='hidden' --bold --color='fg+:15,bg+:-1,info:12,prompt:4,pointer:12'"
+let $FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS .. " --margin='1,4' --bold --color='fg+:15,bg+:-1,info:12,prompt:4,pointer:12'"
 
 " Define key mappings.
 nnoremap <silent> <C-p> :FGFiles<CR>
@@ -46,26 +39,12 @@ nnoremap <silent> g<C-p> :call fzf#run(
 	\ fzf#wrap(
 		\ 'projects',
 		\ {
-		\	'source': 'ls ~/Projects',
-		\	'dir': '~/Projects',
+		\	'source': 'ls ~/Repos',
+		\	'dir': '~/Repos',
 		\	'sink': {dir -> execute(printf('silent edit %s', dir))},
 		\	'options': '--no-multi --prompt="> "'
 		\ },
 		\ 0
 	\ )
 \ )<CR>
-
-function! g:FzfFloatingWindow() abort
-	call nvim_open_win(
-		\ nvim_create_buf(v:false, v:true),
-		\ v:true,
-		\ {
-			\ 'relative': 'editor',
-			\ 'row': 2,
-			\ 'col': (&columns - 80) / 2,
-			\ 'width': 80,
-			\ 'height': 30,
-			\ 'style': 'minimal'
-		\ }
-	\ )
-endfunction
+nnoremap <silent> <Leader>g :FRg:<CR>

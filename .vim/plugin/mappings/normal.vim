@@ -12,11 +12,11 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " Always search with 'very magic' mode.
-nnoremap / /\v
-nnoremap ? ?\v
+"nnoremap / /\v
+"nnoremap ? ?\v
 
 " Override Ex mode with run @q.
-nnoremap Q @q
+"nnoremap Q @q
 
 " Always send contents of a `x` command to the black hole register.
 nnoremap x "_x
@@ -42,16 +42,12 @@ nnoremap <S-Down> 2<C-w>-
 nnoremap <S-Right> 2<C-w>>
 nnoremap <S-Left> 2<C-w><
 
-" Toggle terminal buffer.
-tnoremap <silent> <C-z> <C-\><C-n>:call kutsan#mappings#normal#terminal#()<CR>
-nnoremap <silent> <C-z> :call kutsan#mappings#normal#terminal#()<CR>
-
 " Add [count] blank lines above or below the cursor.
 nnoremap <silent> [<Space> :<C-u>put! =repeat(nr2char(10), v:count1) <Bar> ']+1<CR>
 nnoremap <silent> ]<Space> :<C-u>put =repeat(nr2char(10), v:count1) <Bar> '[-1<CR>
 
 " Open URL under cursor in browser or open path in GUI explorer.
-nnoremap <silent> gb :execute printf('silent !xdg-open "%s" 2>/dev/null', expand('<cfile>'))<CR>
+nnoremap <silent> gb :execute printf('silent !open "%s" 2>/dev/null', expand('<cfile>'))<CR>
 
 " Toggle common options.
 nnoremap <silent> cos :set spell!<CR>
@@ -64,12 +60,6 @@ nnoremap <C-]> g<C-]>zt
 " Go previous and next location list entry.
 nnoremap <silent> [l :labove<CR>
 nnoremap <silent> ]l :lbelow<CR>
-
-" QuickFix navigation mappings.
-nnoremap <silent> <Up> :cprevious<CR>
-nnoremap <silent> <Down> :cnext<CR>
-nnoremap <silent> <Left> :cpfile<CR>
-nnoremap <silent> <Right> :cnfile<CR>
 
 " Format whole file using `gq` wrapper and `[a]n [e]ntire` operator.
 nmap <silent> \f gqae

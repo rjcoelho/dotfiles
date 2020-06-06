@@ -13,44 +13,42 @@
 [submodule "system-clipboard"]
 	path = .zsh/plugins/system-clipboard
 	url = https://github.com/kutsan/zsh-system-clipboard
-
-[submodule "coc"]
-	path = .vim/pack/bundle/start/coc
-	url = https://github.com/neoclide/coc.nvim
-[submodule "colorizer"]
-	path = .vim/pack/bundle/start/colorizer
-	url = https://github.com/norcalli/nvim-colorizer.lua
-[submodule "defx"]
-	path = .vim/pack/bundle/start/defx
-	url = https://github.com/Shougo/defx.nvim
-[submodule "defx-icons"]
-	path = .vim/pack/bundle/start/defx-icons
-	url = https://github.com/kristijanhusak/defx-icons
-	ignore = dirty
-[submodule "fugitive"]
-	path = .vim/pack/bundle/start/fugitive
-	url = https://github.com/tpope/vim-fugitive
-[submodule "fzf-core"]
-	path = .vim/pack/bundle/start/fzf-core
-	url = https://github.com/junegunn/fzf
-[submodule "fzf-vim"]
+[submodule ".vim/pack/bundle/opt/tmuxline"]
+	path = .vim/pack/bundle/opt/tmuxline
+	url = https://github.com/edkolev/tmuxline.vim
+[submodule ".vim/pack/bundle/start/fzf-vim"]
 	path = .vim/pack/bundle/start/fzf-vim
 	url = https://github.com/junegunn/fzf.vim
-[submodule "peartree"]
-	path = .vim/pack/bundle/start/peartree
-	url = https://github.com/tmsvg/pear-tree
-[submodule "polyglot"]
+[submodule ".vim/pack/bundle/start/fzf-core"]
+	path = .vim/pack/bundle/start/fzf-core
+	url = https://github.com/junegunn/fzf
+[submodule ".vim/pack/bundle/start/polyglot"]
 	path = .vim/pack/bundle/start/polyglot
 	url = https://github.com/sheerun/vim-polyglot
-[submodule "sandwich"]
-	path = .vim/pack/bundle/start/sandwich
-	url = https://github.com/machakann/vim-sandwich
-[submodule "signify"]
-	path = .vim/pack/bundle/start/signify
-	url = https://github.com/mhinz/vim-signify
-[submodule "undotree"]
-	path = .vim/pack/bundle/opt/undotree
-	url = https://github.com/mbbill/undotree
+[submodule ".vim/pack/bundle/start/lightline"]
+	path = .vim/pack/bundle/start/lightline
+	url = https://github.com/itchyny/lightline.vim
+[submodule ".vim/pack/bundle/opt/apprentice"]
+	path = .vim/pack/bundle/opt/apprentice
+	url = https://github.com/romainl/Apprentice
+[submodule ".vim/pack/bundle/start/sneak"]
+	path = .vim/pack/bundle/start/sneak
+	url = https://github.com/justinmk/vim-sneak
+[submodule ".vim/pack/bundle/start/quick-scope"]
+	path = .vim/pack/bundle/start/quick-scope
+	url = https://github.com/unblevable/quick-scope
+[submodule ".vim/pack/bundle/start/repeat"]
+	path = .vim/pack/bundle/start/repeat
+	url = https://github.com/tpope/vim-repeat
 [submodule ".config/kak/plugins/plug.kak"]
 	path = .config/kak/plugins/plug.kak
 	url = https://gitlab.com/andreyorst/plug.kak.git
+[submodule ".vim/pack/bundle/start/gitgutter"]
+	path = .vim/pack/bundle/start/gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule ".vim/pack/bundle/start/floaterm"]
+	path = .vim/pack/bundle/start/floaterm
+	url = https://github.com/voldikss/vim-floaterm
+[submodule ".vim/pack/bundle/start/dirvish"]
+	path = .vim/pack/bundle/start/dirvish
+	url = https://github.com/justinmk/vim-dirvish

@@ -1,5 +1,3 @@
-" vint: -ProhibitEncodingOptionAfterScriptEncoding
-
 " Encoding
 set encoding=UTF-8 " Default encoding. (vim-only)
 scriptencoding UTF-8 " Default encoding for current script.
@@ -12,17 +10,17 @@ else
 	set viminfo=!,'100,<50,s10,h,n~/.vim/cache/share/viminfo
 endif
 
-" Colors
+" Colors, see http://colorswat.ch/ and https://vscodethemes.com/
 set background=dark " Choose dark colors if available.
-set termguicolors " Enable True Color support.
-let g:material_theme_style = 'ocean'
-colorscheme material " Color scheme.
+set notermguicolors " Enable True Color support.
+packadd apprentice
+colorscheme apprentice " Color scheme.
 
 " Behaviour
 set backspace=indent,eol,start " Allow backspacing over anything in insert mode.
 set belloff=all " Never ring the bell for any reason.
 set breakindent " Wrapped lines will be visually indented with same amount of space.
-set clipboard=  " Don't sync system clipboard with vim registers.
+set clipboard=unnamedplus  " Sync system clipboard with vim registers.
 set comments= " Clear default 'comments' value, let the filetype handle it.
 set display=lastline " As much as possible of the last line in a window will be displayed.
 set modelines=0 " Set number of lines that is checked for set commands.
@@ -58,6 +56,7 @@ set lazyredraw " Don't redraw screen while executing macros.
 
 " Interface
 set number " Show line numbers alongside relative numbers.
+set relativenumber " Show relative line numbers alongside numbers.
 set cursorline " Highlight the line background of the cursor.
 set fillchars=stl:\ ,stlnc:\ ,vert:\ ,fold:\ ,diff:\  " Characters to be used in various user-interface elements.
 set laststatus=2 " Always show the status line.
@@ -80,8 +79,6 @@ set smartindent " Automatically inserts one extra level of indentation in some c
 " Folding
 set foldlevelstart=99 " Start editing with all folds open.
 set foldmethod=indent " Use indent model for folding mechanism.
-set foldtext=kutsan#settings#foldtext() " Use custom fold text function for folds.
-set foldopen=hor,mark,percent,quickfix,tag,undo " Specifies for which type of commands folds will be opened.
 
 " Search
 let &grepprg = 'rg
@@ -101,12 +98,9 @@ set nohlsearch " Disable highlight the matched search results by default.
 set smartcase " If a uppercase character is entered, the search will be case sensitive.
 
 " Backup
-set backupdir=~/.vim/cache/backup// " The directory for backup files.
-set directory=~/.vim/cache/swap// " The directory for swap files.
-set undodir=~/.vim/cache/undo// " The directory for undo files.
-set viewdir=~/.vim/cache/view// " Name of the directory where to store files for :mkview.
-set undofile " Undo tree to be saved to a file when exiting a buffer.
-set undolevels=100000 " Maximum undo limit.
+set nobackup " Disable backup
+set noswapfile " Disable swap
+set noundofile " Disable undo
 set updatecount=100 " Typing this many characters will create the swap file.
 set viewoptions=cursor,folds " Options used by `mkview` and `loadview` commands.
 
@@ -116,7 +110,6 @@ set hidden " Allows you to hide buffers with unsaved changes without being promp
 set splitbelow " Splitting a window will put the new window below of the current one.
 set splitright " Splitting a window will put the new window right of the current one.
 set switchbuf=useopen " Jump to the first open window that contains the specified buffer.
-set tabline=%!kutsan#settings#tabline() " Custom tabline modifier function.
 set tabpagemax=50 " Maximum number of tab pages to be opened by the `tab all` command.
 
 " Command Mode
@@ -127,7 +120,7 @@ set noshowmode " Disable native mode indicator.
 set wildcharm=<C-z> " The key to start wildcard expansion inside macro.
 set wildignorecase " Ignore case when completing in command menu.
 set wildmenu " Command-line completion operates in an enhanced mode.
-set wildmode=full " Wildmenu options.
+set wildmode=longest,list,full " Wildmenu options.
 
 " Vim
 if !has('nvim') && !has('gui')
@@ -145,18 +138,4 @@ if has('nvim')
 	set inccommand=split " Show live substitution results as you type.
 	set fillchars+=eob:\ ,msgsep:─ " Hide end of buffer tilde symbols and set msgsep symbol.
 	set display+=msgsep " Only scroll lines on command line pager, not the entire screen.
-endif
-
-" Root
-if exists('$SUDO_USER')
-	set noswapfile
-	set nobackup
-	set nowritebackup
-	set noundofile
-
-	if has('nvim')
-		set viminfo=
-	else
-		set shada=
-	endif
 endif
