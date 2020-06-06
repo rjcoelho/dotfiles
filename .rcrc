@@ -1,0 +1,4 @@
+# usage RCRC=.rcrc rcup -v -d `pwd` .config .editorconfig .kerlrc .hushlogin .macos .taskrc .tmux .vim .zsh .zshenv
+EXCLUDES="*.md LICENSE"
+SYMLINK_DIRS=".config/* .editorconfig .kerlrc .macos .tmux .vim .zsh .zshenv"
+UNDOTTED=".*"

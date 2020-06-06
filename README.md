@@ -1,80 +1,117 @@
-# `kutsan's dotfiles`
+# rjcoelho's dotfiles
 
-![screenshot](./.github/screenshot.png?raw=true)
+[![xkcd: Automation](http://imgs.xkcd.com/comics/automation.png)](http://xkcd.com/1319/)
 
-> running **neovim** inside **tmux** that is inside **kitty** terminal emulator with **monaco** font on
+> running **neovim** inside **tmux** that is inside **kitty** terminal emulator with **source-code-pro** font on **nord** and **apprentice** color schemas
 
 ## Overview
 
-- [`zsh`](https://github.com/zsh-users/zsh) - Highly customizable interactive login shell and command interpreter for shell scripting
-	- [`pure`](https://github.com/sindresorhus/pure) - Minimal and fast Zsh prompt with asynchronous git fetch
-	- [`autopair`](https://github.com/hlissner/zsh-autopair) - Auto-close and delete matching delimiters
-	- [`system-clipboard`](https://github.com/kutsan/zsh-system-clipboard) - Synchronize ZLE clipboard buffer with system clipboard
-	- [`syntax-highlighting`](https://github.com/zsh-users/zsh-syntax-highlighting) - Fish-like syntax highlighting support for interactive terminal
-	- [`autosuggestions`](https://github.com/zsh-users/zsh-autosuggestions) - Fish-like auto-suggestions for interactive terminal based on command history
-- [`neovim`](https://github.com/neovim/neovim) - The fork of ubiquitous text editor focused on extensibility and usability
-	- [`material`](https://github.com/kaicataldo/material.vim) - Color scheme
-	- [`coc`](https://github.com/neoclide/coc.nvim) - Context-aware completion engine
-	- [`colorizer`](https://github.com/norcalli/nvim-colorizer.lua) - High-performance color highlighter
-	- [`defx`](https://github.com/Shougo/defx.nvim) - File explorer
-		- [`Send2Trash`](https://github.com/hsoft/send2trash) - Python library to natively send files to trash
-	- [`defx-icons`](https://github.com/kristijanhusak/defx-icons) - Icon columm support for defx
-	- [`fugitive`](https://github.com/tpope/vim-fugitive) - Git client
-	- [`fzf`](https://github.com/junegunn/fzf.vim) - Fuzzy finder fzf as plugin
-	- [`peartree`](https://github.com/tmsvg/pear-tree) - Auto-pair plugin that supports multi-character pairs and intelligent matching
-	- [`polyglot`](https://github.com/sheerun/vim-polyglot) - Big collection of language packs as scripts are loaded only on demand
-	- [`sandwich`](https://github.com/machakann/vim-sandwich) - The set of operator and text object plugins to search, select, edit sandwiched text objects
-	- [`signify`](https://github.com/mhinz/vim-signify) - Show Git diff in the sign column
-	- [`undotree`](https://github.com/mbbill/undotree) - Visualize undo tree
-- [`git`](https://git-scm.com) - Version control system for tracking changes in files and coordinating the work
-- [`tmux`](https://github.com/tmux/tmux) - Terminal multiplexer enables working with split panes, tabs and detachable sessions
-- [`nodejs`](https://nodejs.org) - JavaScript runtime environment for developing a diverse variety of applications
-	- [`npm`](https://www.npmjs.com) - Node Package Manager mainly for the JavaScript programming language
-		- [`prettier`](https://github.com/prettier/prettier) - Code formatter for various web file types
-		- [`neovim`](https://github.com/neovim/node-client) - Neovim Node support for plugins
-		- [`fx`](https://github.com/antonmedv/fx) - TUI JSON viewer
-		- [`bitwarden`](https://github.com/bitwarden/cli) - Password manager
-- [`python`](https://www.python.org) - High-level programming language for general-purpose programming
-	- [`pip`](https://pypi.org) - Python package manager to install and manage packages written in Python
-		- [`ranger`](https://github.com/ranger/ranger) - Text-based file system manager for the console with Vim-like key bindings
-			- [`exiftool`](http://www.sno.phy.queensu.ca/~phil/exiftool) - Read, write and edit meta information in a wide variety of media files
-		- [`stig`](https://github.com/rndusr/stig) - TUI and CLI interface for transmission-daemon
-		- [`terminal-colors`](https://github.com/eikenb/terminal-colors) - Test utility for color capabilities of terminal
-		- [`grip`](https://github.com/joeyespo/grip) - Preview Markdown files in local server
-		- [`trackma`](https://github.com/z411/trackma) - Multi-site anime, manga list manager
-		- [`pynvim`](https://github.com/neovim/pynvim) - Python client for neovim
-		- [`trash-cli`](https://github.com/andreafrancia/trash-cli) - Move files and folders to the trash
-- [`coreutils`](https://www.gnu.org/software/coreutils/coreutils.html) - GNU core utilities for basic file, shell and text manipulation
-- [`findutils`](https://www.gnu.org/software/findutils) - GNU basic directory searching utilities that provides find, locate and xargs
-- [`less`](http://www.greenwoodsoftware.com/less) - Standard file pager for Unix-like systems
-- [`curl`](https://github.com/curl/curl) - Tool for transferring data using various protocols
-- [`grep`](https://www.gnu.org/software/grep) - Search plain-text data sets for lines that match a regular expression
-- [`tar`](https://www.gnu.org/software/tar) - File archiver
-- [`gzip`](https://www.gnu.org/software/gzip) - Data compression utility
-- [`sed`](https://www.gnu.org/software/sed) - Non-interactive command-line text editor
-- [`gnupg`](https://www.gnupg.org) - Hybrid-encryption software suit, free implementation of the OpenPGP standard
-- [`nmap`](https://github.com/nmap/nmap) - Network security scanner and mapper for exploration and security auditing
-- [`openssl`](https://github.com/openssl/openssl) - Toolkit for the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols
-- [`openssh`](https://www.openssh.com) - Connectivity tool for remote login with the SSH protocol
-- [`rsync`](https://rsync.samba.org) - Utility that provides fast incremental file transfer
-- [`fzf`](https://github.com/junegunn/fzf) - General-purpose fuzzy finder that can be used among other Unix tools
-- [`htop`](https://github.com/hishamhm/htop) - Interactive text-based system monitor, process viewer and process manager
-- [`neomutt`](https://github.com/neomutt/neomutt) - Fork of the mail user agent mutt with new features and patches
-	- [`msmtp`](http://msmtp.sourceforge.net) - SMTP agent for sending e-mails through mail user agents or terminal
-- [`ripgrep`](https://github.com/BurntSushi/ripgrep) - Line oriented search tool similar to grep that combines the usability of ag
-- [`ffmpeg`](https://github.com/FFmpeg/FFmpeg) - Cross-platform solution to handle, record, convert and stream audio and video
-- [`transmission`](https://github.com/transmission/transmission) - BitTorrent client and daemon with web UI for remote controlling
-- [`par`](https://github.com/sergi/par) - Paragraph reformatter and aligner for e-mails and plain text
-- [`bind`](https://source.isc.org/cgi-bin/gitweb.cgi) - Domain Name System tools
-- [`gcal`](https://www.gnu.org/software/gcal) - Calculate and print calendars
-- [`mpv`](https://github.com/mpv-player/mpv) - Minimalist video player based on MPlayer
-- [`universal-ctags`](https://github.com/universal-ctags/ctags) - A maintained ctags implementation
-- [`wireguard`](https://github.com/WireGuard/wireguard-go) - Virtual Private Network protocol to create secure point-to-point connections
-- [`ledger`](https://github.com/ledger/ledger) - Double-entry accounting system with a command-line reporting interface
-- [`gnuplot`](https://github.com/gnuplot/gnuplot) - Command-line driven graphing utility
-- [`oath-toolkit`](https://www.nongnu.org/oath-toolkit) - Provides components for building one-time password authentication systems
-- [`gptfdisk`](https://www.rodsbooks.com/gdisk) - Interactive GUID partition table (GPT) manipulator
-- [`imagemagick`](https://imagemagick.org) - Software suite for displaying, converting, and editing raster image and vector image files
+- [alacritty](https://github.com/alacritty/alacritty) - A cross-platform, GPU-accelerated terminal emulator
+- [apprentice](https://github.com/romainl/Apprentice) - A dark, low-contrast, Vim colorscheme
+- [bandwhich](https://github.com/imsnif/bandwhich) - Terminal bandwidth utilization tool in Rust
+- [bat](https://github.com/sharkdp/bat) - A cat clone with additional features like git integration and syntax highlighting
+- [brew/osx](http://brew.sh/) - The Missing Package Manager for macOS
+- [broot](https://github.com/Canop/broot) - A new way to see and navigate directory trees
+- [cheat](https://github.com/cheat/cheat) - Allows you to create and view interactive cheatsheets on the command-line
+- [cmus](https://cmus.github.io/) - small, fast and powerful console music player
+- [coreutils](https://www.gnu.org/software/coreutils/coreutils.html) - GNU core utilities for basic file, shell and text manipulation
+- [curl](https://github.com/curl/curl) - Tool for transferring data using various protocols
+- [ddgr](https://github.com/jarun/ddgr) - DuckDuckGo from the terminal
+- [delta](https://github.com/dandavison/delta) - A syntax-highlighter for git and diff output
+- [direnv](https://direnv.net/) - An extension for your shell, that can load and unload environment variables depending on the current directory
+- [dust](https://github.com/bootandy/dust) - A more intuitive version of du
+- [exa](https://github.com/ogham/exa) - A modern version of ‘ls’
+- [fasd](https://github.com/clvv/fasd) - Command-line productivity booster, offers quick access to files and directories, inspired by autojump, z and v
+- [fd](https://github.com/sharkdp/fd) - A simple, fast and user-friendly alternative to 'find'
+- [fish-shell](https://github.com/fish-shell/fish-shell) - The user-friendly command line shell
+- [fzf](https://github.com/junegunn/fzf) - General-purpose fuzzy finder that can be used among other Unix tools
+- [git](https://git-scm.com) - Version control system for tracking changes in files and coordinating the work
+- [googler](https://github.com/jarun/googler) - Google Search, Google Site Search, Google News from the terminal
+- [gotty](https://github.com/yudai/gotty) - Share your terminal as a web application
+- [grv](https://github.com/rgburke/grv) - A terminal interface for viewing git repositories
+- [hammerspoon](https://github.com/Hammerspoon/hammerspoon) - A tool for powerful automation of OS X using lua scripts
+- [htop](https://github.com/hishamhm/htop) - Interactive text-based system monitor, process viewer and process manager
+- [httpie](https://github.com/jakubroztocil/httpie) - A command line HTTP client, a user-friendly cURL replacement
+- [hyperfine](https://github.com/sharkdp/hyperfine) - A command-line benchmarking tool in Rust, 'time' replacement
+- [iterm2](https://iterm2.com/) - A replacement for Terminal and the successor to iTerm
+- [karabiner](https://github.com/pqrs-org/Karabiner-Elements) - A powerful utility for keyboard customization on macOS
+- [kerlrc](https://github.com/kerl/kerl) - Easy building and installing of Erlang/OTP instances
+- [less](http://www.greenwoodsoftware.com/less) - Standard file pager for Unix-like systems
+- [lf](https://github.com/gokcehan/lf) - Terminal file manager
+- [lib.rs](https://lib.rs/) Rust libraries and applications, see also [crates.io](https://crates.io/)
+- [lnav](http://lnav.org/) An advanced log file viewer for the small-scale
+- [mpsyt](https://github.com/mps-youtube/mps-youtube) Terminal based YouTube player and downloader
+- [mpv](https://github.com/mpv-player/mpv) Video player based on MPlayer/mplayer2
+- [mr](http://myrepos.branchable.com/) - manage all your version control repositories
+- [multitail](https://www.vanheusden.com/multitail/) Monitor logfiles and command output in multiple windows in a terminal
+- [ncdu](https://dev.yorhel.nl/ncdu) - Disk usage analyzer for quickly finding big files with ncurses interface
+- [neovim](https://github.com/neovim/neovim) - The fork of ubiquitous text editor focused on extensibility and usability
+- [newsboat](https://github.com/newsboat/newsboat) - RSS/Atom feed reader
+- [ngrep](http://ngrep.sourceforge.net/) - A grep as a network packet analyzer
+- [nmap](https://github.com/nmap/nmap) - Network security scanner and mapper for exploration and security auditing
+- [nnn](https://github.com/jarun/nnn) - n³ The missing terminal file manager for X
+- [nordtheme](https://www.nordtheme.com/) - An arctic, north-bluish color palette
+- [openssh](https://www.openssh.com) - Connectivity tool for remote login with the SSH protocol
+- [openssl](https://github.com/openssl/openssl) - Toolkit for the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols
+- [procs](https://github.com/dalance/procs) - A modern replacement for ps written in Rust
+- [rcm](https://github.com/thoughtbot/rcm) - rc file (dotfile) management
+- [ripgrep](https://github.com/BurntSushi/ripgrep) - Line oriented search tool similar to grep that combines the usability of ag
+- [rsync](https://rsync.samba.org) - Utility that provides fast incremental file transfer
+- [scc](https://github.com/boyter/scc) - Count lines of code quickly in rust
+- [sd](https://github.com/chmln/sd) - Intuitive find & replace CLI (sed alternative)
+- [shellcheck](https://github.com/koalaman/shellcheck) - A static analysis tool for shell scripts
+- [skhd](https://github.com/koekeishiya/skhd) - Simple hotkey daemon for macOS
+- [skim](https://github.com/lotabout/skim) - Fuzzy Finder in rust!
+- [surfraw](http://surfraw.alioth.debian.org/) - Browse specific site and search the web from your terminal without browser
+- [taskwarrior](https://github.com/GothenburgBitFactory/taskwarrior) - Commandline Task Management
+- [tealdeer](https://github.com/dbrgn/tealdeer) - A very fast implementation of tldr in Rust
+- [tig](https://github.com/jonas/tig) - TUI interface for git
+- [tig](https://jonas.github.io/tig) - A ncurses-based text-mode interface for git
+- [tmux](https://github.com/tmux/tmux) - Terminal multiplexer enables working with split panes, tabs and detachable sessions
+- [transcrypt](https://github.com/elasticdog/transcrypt) - Encrypt files within a git repository
+- [vscode](https://code.visualstudio.com/) - A source code editor that can be used with a variety of programming languages
+- [w3m](https://github.com/tats/w3m) - Debian's w3m: WWW browsable pager
+- [weechat](https://weechat.org/) - WeeChat is a fast, light and extensible chat client
+- [wget](https://www.gnu.org/software/wget) - Tool for retrieving files using the most widely-used Internet protocols
+- [yabai](https://github.com/koekeishiya/yabai) - A tiling window manager for macOS based on binary space partitioning
+- [youtube-dl](https://github.com/rg3/youtube-dl) - Small command-line program to download videos from YouTube.com
+- [youtube-dl](https://github.com/ytdl-org/youtube-dl) - Command-line program to download videos from YouTube.com and other video sites
+- [zsh](https://github.com/zsh-users/zsh) - Highly customizable interactive login shell and command interpreter for shell scripting
+
+## Install
+
+See [The best way to store your dotfiles: A bare Git repository](https://www.atlassian.com/git/tutorials/dotfiles)
+```
+git clone --bare https://github.com/rjcoelho/dotfiles $HOME/.dotfiles.git
+function config {
+   /usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME $@
+}
+rm -rf $HOME/.config-backup
+mkdir -p $HOME/.config-backup
+config checkout
+if [ $? = 0 ]; then
+  echo "Checked out config.";
+  else
+    echo "Backing up pre-existing dot files.";
+    config checkout 2>&1 | egrep "\s+\." | xargs -I{} sh -c 'mkdir -pv $HOME/.config-backup/`dirname {}` && mv $HOME/{} $HOME/.config-backup/{}'
+fi;
+config checkout
+config config --local status.showUntrackedFiles no
+config submodule update --init --recursive
+...
+config fetch && config reset --hard origin/master
+```
+
+## [XDG Base Directory](https://wiki.archlinux.org/index.php/XDG_Base_Directory)
+
+`XDG_CONFIG_HOME` Where user-specific configurations should be written (analogous to /etc). 
+Should default to $HOME/.config.
+
+`XDG_CACHE_HOME` Where user-specific non-essential (cached) data should be written (analogous to /var/cache). 
+Should default to $HOME/.cache.
+
+`XDG_DATA_HOME` Where user-specific data files should be written (analogous to /usr/share).
+Should default to $HOME/.local/share.
 
 ## License
 
