@@ -19,7 +19,7 @@ function should_launch_multiplexer() {
 }
 
 # Auto-attach tmux or start at launch with different sessions based on platforms.
-if (should_launch_multiplexer) {
+if (should_launch_multiplexer && false) {
 	typeset -g session='main'
 	typeset -g launch_options='\; '
 

@@ -43,6 +43,24 @@
 [submodule ".config/kak/plugins/plug.kak"]
 	path = .config/kak/plugins/plug.kak
 	url = https://gitlab.com/andreyorst/plug.kak.git
+[submodule ".zsh/plugins/history-substring-search"]
+	path = .zsh/plugins/history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search
+[submodule ".tmux/plugins/prefix-highlight"]
+	path = .tmux/plugins/prefix-highlight
+	url = https://github.com/tmux-plugins/tmux-prefix-highlight.git
+[submodule ".zsh/plugins/fzf-tab"]
+	path = .zsh/plugins/fzf-tab
+	url = https://github.com/Aloxaf/fzf-tab
+[submodule ".zsh/plugins/defer"]
+	path = .zsh/plugins/defer
+	url = https://github.com/romkatv/zsh-defer
+[submodule ".zsh/plugins/fzf-gems"]
+	path = .zsh/plugins/fzf-gems
+	url = https://github.com/teto/fzf-gems
+[submodule ".zsh/plugins/1password"]
+	path = .zsh/plugins/1password
+	url = https://github.com/sirhc/op.plugin.zsh
 [submodule ".vim/pack/bundle/start/gitgutter"]
 	path = .vim/pack/bundle/start/gitgutter
 	url = https://github.com/airblade/vim-gitgutter

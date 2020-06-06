@@ -3,16 +3,16 @@ if ! [[ -d "$ZDOTDIR/plugins/" ]] {
 	return 1
 }
 
-# zsh-autopair: Insert or delete brackets, parens, quotes in pair.
+# zsh-autopair: Insert or delete brackets, parens, quotes in pair. (.01s)
 source "$ZDOTDIR/plugins/autopair/autopair.zsh"
 
-# zsh-system-clipboard: Synchronize system clipboard with ZLE registers.
+# zsh-system-clipboard: Synchronize system clipboard with ZLE registers. (0s)
 source "$ZDOTDIR/plugins/system-clipboard/zsh-system-clipboard.zsh"
 
-# zsh-autosuggestions: Fish-like auto-suggestions.
+# zsh-autosuggestions: Fish-like auto-suggestions. (0s)
 source "$ZDOTDIR/plugins/autosuggestions/zsh-autosuggestions.zsh"
 
-# zsh-syntax-highlighting: Syntax highlighting support.
+# zsh-syntax-highlighting: Syntax highlighting support. (.01s)
 source "$ZDOTDIR/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh"
 	typeset -ga ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 	typeset -gA ZSH_HIGHLIGHT_STYLES
@@ -50,3 +50,30 @@ source "$ZDOTDIR/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 	# brackets
 	ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='bg=black'
+
+# zsh-history-substring-search: Fish-like history search. (0.01s)
+source "$ZDOTDIR/plugins/history-substring-search/zsh-history-substring-search.zsh"
+
+# fzf (0s)
+if [[ -f "$HOME/.fzf.zsh" ]] source "$HOME/.fzf.zsh"
+
+# fzf-tab: Replace zsh's default completion selection menu with fzf.
+#source "$ZDOTDIR/plugins/fzf-tab/fzf-tab.plugin.zsh"
+
+# fzf-gems: few fzf bindings for shell convenience ^G^{File,Branch,Tag,Remote,History}
+# see https://junegunn.kr/2016/07/fzf-git/
+#source "$ZDOTDIR/plugins/fzf-gems/fzf_git_functions.sh"
+#source "$ZDOTDIR/plugins/fzf-gems/fzf_git_keybindings.zsh"
+
+# fasd (.01s)
+fasd_cache="$ZDOTDIR/cache/fasd-init-cache.$UID.zsh"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+	fasd --init auto >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
+
+# op: 1password completions
+# see https://support.1password.com/command-line-getting-started/
+# need to call ´eval $(op signin https://miniclip.1Password.com rui.coelho@miniclip.com)´
+#source "$ZDOTDIR/plugins/1password/op.plugin.zsh"

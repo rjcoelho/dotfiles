@@ -4,6 +4,7 @@ foreach widget (
 	'add-surround surround'
 	'delete-surround surround'
 	'change-surround surround'
+	edit-command-line
 	select-quoted
 	select-bracketed
 
@@ -13,6 +14,8 @@ foreach widget (
 	custom-tmux-scroll-up
 	custom-fzf-launch-from-history
 	custom-fzf-select
+	custom-fzf-fasd-widget
+	fzf-gf-widget
 ) {
 	eval zle -N $widget
 }
@@ -118,4 +121,15 @@ function custom-fzf-select() {
 	}
 
 	zle redisplay
+}
+
+# Fasd fast jump with fzf, see https://pastebin.com/fy7A5DeP
+function custom-fzf-fasd-widget() {
+	if ! (( $+commands[fasd] )) || ! (( $+commands[fzf] )) {
+		return 1
+	}
+	local cmd="${FZF_ALT_C_COMMAND:-"command fasd -Rdl"}"
+    cd "${$(eval "$cmd" | $(__fzfcmd) +m):-.}"
+    
+	zle reset-prompt
 }

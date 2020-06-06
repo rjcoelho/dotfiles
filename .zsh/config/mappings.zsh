@@ -8,8 +8,10 @@ bindkey -M viins '^B' backward-kill-word # Delete a WORD backward.
 bindkey -M viins '^[[3~' delete-char # Ensure delete key always delete forward.
 bindkey -M viins ' ' custom-expand-global-alias # Space key to expand global aliases.
 bindkey -M viins '^Y' custom-insert-last-typed-word # Insert last typed word for quick copy-paste.
-bindkey -M viins '^R' custom-fzf-launch-from-history # Select command from history into the command line.
-bindkey -M viins '^P' custom-fzf-select # Paste the selected files and directories into the command-line.
+bindkey -M viins '^R' custom-fzf-launch-from-history # Select command from history into the command line (same as fzf-history-widget).
+bindkey -M viins '^P' custom-fzf-select # Paste the selected files and directories into the command-line (same as fzf-cd-widget+fzf-file-widget).
+bindkey -M viins '^A' custom-fzf-fasd-widget # Fasd fast jump with fzf
+bindkey -M viins '^Z' toggle-fzf-tab # Toggle tab completion replace with fzf
 
 # Normal Mode
 bindkey -M vicmd 'j' down-line # Override down-line-or-history.
@@ -46,3 +48,13 @@ bindkey -M menuselect '^L' forward-char # Navigate right completion.
 bindkey -M menuselect '^H' backward-char # Navigate left completion.
 bindkey -M menuselect '^I' down-line-or-history # <Tab> to selection completion forward.
 bindkey -M menuselect '^[[Z' reverse-menu-complete # <S-Tab> to select completion backward.
+
+# Fish-like history search
+bindkey -M viins '^[[A' history-substring-search-up # Up-arrow to prev history entry
+bindkey -M viins '^[[B' history-substring-search-down # Up-arrow to next history entry
+
+# Edit line in vim with ctrl-e
+bindkey '^e' edit-command-line
+
+# Default to vimins mode
+bindkey -v

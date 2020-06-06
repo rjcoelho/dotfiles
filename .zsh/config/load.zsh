@@ -3,6 +3,8 @@ typeset -gU path fpath cdpath
 
 # Define functions to load them on execution.
 foreach function (
+	add-zsh-hook
+	edit-command-line
 	compinit
 	promptinit
 	select-bracketed
@@ -39,3 +41,6 @@ if (( $#comp_files )) {
 
 unset zcompdump
 unset comp_files
+
+# zsh-defer: Deferred execution of zsh commands
+source "$ZDOTDIR/plugins/defer/zsh-defer.plugin.zsh"

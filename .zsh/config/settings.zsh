@@ -17,18 +17,6 @@ setopt PUSHD_MINUS # Exchanges  the  meanings of `+` and `-` for pushd.
 setopt PUSHD_SILENT # Do not print the directory stack after pushd or popd.
 setopt PUSHD_TO_HOME # Have pushd with no arguments act like `pushd $HOME`.
 
-# Completion
-zstyle ':completion:*' menu select # Use completion menu for completion when available.
-zstyle ':completion:*' rehash true # When new programs is installed, auto update without reloading.
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*' list-colors ${(s#:#)LS_COLORS} # Match dircolors with completion schema.
-setopt COMPLETE_ALIASES # Prevent aliases from being substituted before completion is attempted.
-setopt COMPLETE_IN_WORD # Attempt to start completion from both ends of a word.
-setopt GLOB_COMPLETE # Don't insert anything resulting from a glob pattern, show completion menu.
-setopt NO_LIST_BEEP # Don't beep on an ambiguous completion.
-setopt LIST_PACKED # Try to make the completion list smaller by drawing smaller columns.
-setopt MENU_COMPLETE # Instead of listing possibilities, select the first match immediately.
-
 # Expansion and Globbing
 setopt BRACE_CCL # Expand expressions in braces which would not otherwise undergo brace expansion.
 setopt EXTENDED_GLOB # Treat the `#`, `~` and `^` characters as part of patterns for globbing.
@@ -36,7 +24,7 @@ setopt GLOB_DOTS # Don't require a leading '.' in a filename to be matched expli
 setopt MAGIC_EQUAL_SUBST # Unquoted arguments of the form `key=value` have filename expansion performed.
 setopt MARK_DIRS # Append a trailing `/` to all directory names resulting from globbing.
 setopt NO_NOMATCH # If a pattern has no matches, don't print an error, leave it unchanged.
-setopt WARN_CREATE_GLOBAL # Warn when a global variables is created in a function.
+#setopt WARN_CREATE_GLOBAL # Warn when a global variables is created in a function.
 # setopt WARN_NESTED_VAR # Warn when an existing variables from an outer scope is set in a function.
 
 # History
@@ -56,8 +44,8 @@ setopt HIST_VERIFY # Don't execute the line directly instead perform history exp
 setopt INC_APPEND_HISTORY # Write to the history file immediately, not when the shell exits.
 setopt SHARE_HISTORY # Share history between all sessions.
 
-# Input/Output
-typeset -g KEYTIMEOUT=10 # The time the shell waits, for another key to be pressed in milliseconds.
+# # Input/Output
+typeset -g KEYTIMEOUT=100 # The time the shell waits, for another key to be pressed in milliseconds.
 setopt NO_CLOBBER # Don't allow `>` redirection to override existing files. Use `>!` instead.
 setopt NO_FLOW_CONTROL # Disable flow control characters `^S` and `^Q`.
 setopt NO_IGNORE_EOF # Enable ^D to logout, exit on end-of-file.
