@@ -88,6 +88,8 @@
     "jira-plugin.workingProject": "",
 
 // ex partialDiff
-    "partialDiff.enableTelemetry": false
+    "partialDiff.enableTelemetry": false,
+    "workbench.editor.decorations.badges": true,
+    "workbench.editor.decorations.colors": true
 }
 
